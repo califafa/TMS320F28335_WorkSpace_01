@@ -41,8 +41,11 @@ int main(void)
 
     InitAdc();
 
-    AdcRegs.ADCTRL1.bit.ACQ_PS=0xf; //     S/H CLK , 16 ADC CLK
+    AdcRegs.ADCTRL1.bit.ACQ_PS=0xf; //     S/H CLK , 16 ADC CLK ， 采样时钟
+
     AdcRegs.ADCTRL3.bit.ADCCLKPS= 1 ;   // HSPCLK/(2*1)=12.5
+    AdcRegs.ADCTRL1.bit.CPS=1;  // 0:non分频   1:2分频
+
     AdcRegs.ADCTRL1.bit.SEQ_CASC=0;  // 1 Cascaded mode, 0 non-cascaded
 
 
